@@ -1,0 +1,47 @@
+
+{% extends 'photo/base.html' %}
+ 
+{% block title %}Gallery{% endblock %}
+  
+{% block content %}
+    <div class="container m-5">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="card">
+            <div class="card-header">Categories</div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <a href="{% url 'gallery' %}">All</a>
+              </li>
+              {% for category in categories %}
+              <li class="list-group-item">
+                <a href="{% url 'gallery' %}?category={{ category.name }}"> {{ category.name }} </a>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-9">
+          <div class="row">
+            {% for photo in photos %}
+            <div class="col-md-4">
+              <div class="card my-2">
+                <img class="image-thumbail" src="{{ photo.image.url }}" alt="Card image cap" style="object-fit: cover; height: 300px" />
+
+                <div class="card-body">
+                  <small>Category: </small>
+                  <br />
+                  <small><i>{{ photo.category.name }}</i></small>
+                </div>
+                <a href="{% url 'detailPhoto' photo.id %} " class="btn btn-outline-dark btn-sm m-1">View</a>
+              </div>
+            </div>
+            {% empty %}
+            <h3>No Photo...</h3>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+{% endblock %}
