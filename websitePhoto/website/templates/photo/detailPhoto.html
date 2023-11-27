@@ -14,8 +14,8 @@
   <!-- End Breadcrumbs -->
   
   <!-- ======= Portfolio Details Section ======= -->
-  <section id="portfolio-details" class="portfolio-details">
-    <div class="container">
+  <section id="portfolio-details" class="portfolio-details" >
+    <div class="container"style="margin-bottom: 10vh">
       <div class="row gy-4 mt-2" style="background-color: #FAF6F0; height:600px">
         <div class="col-lg-7">
           <div class="portfolio-details-slider swiper">
@@ -41,7 +41,7 @@
                 <li><strong>Description</strong> : {{ photo.description }}</li>
                 <li><strong>Price</strong>: Rp. {{ formatted_price}}</li>
                 <br />
-                <a href="https://wa.me/6287851865091"
+                <a href="https://wa.me/62895801837890"
                     ><li><input type="submit" class="btn btn-primary" value="Check Out" /></li
                 ></a>
                 </ul>
@@ -50,7 +50,7 @@
       </div>
     </div>
   </section>
-
+  {% include 'photo/footer.html' %}
 {% endblock %}
 
 
